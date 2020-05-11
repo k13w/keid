@@ -17,7 +17,6 @@ const Routes: React.FC = () => {
         )
       }
 
-    console.log(signed)
     return signed ? <AppRoutes /> : <AuthRoutes />
 };
 

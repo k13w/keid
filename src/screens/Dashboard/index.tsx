@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Button } from 'react-native';
+import { View, Button, Text } from 'react-native';
 import { useAuth } from '../../contexts/auth';
 
 const Dashboard: React.FC = () => {
@@ -9,7 +9,7 @@ const Dashboard: React.FC = () => {
   }
   return (
     <View>
-      <Button title="Logout" onPress={HandleSingOut} />
+      <Text>sasa</Text>
     </View>
   )
 }

@@ -12,9 +12,7 @@ import {
     PanelLogin, 
     Footer, 
     SubmitButton, 
-    SubmitButtonText, 
-    EnvelopeIcon,
-    LockIcon, 
+    SubmitButtonText,
 } from './styles';
 
 interface FormData {
