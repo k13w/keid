@@ -12,9 +12,7 @@ import { useTheme as useThemeContext} from '../../contexts/theme';
 const DrawerContent: React.FC = (props) => {
   const paperTheme = useTheme();
 
-  const { toogleTheme, theme } = useThemeContext();
-
-  console.log("theme" + theme)
+  const { toogleTheme } = useThemeContext();
   
   
   return (
@@ -100,8 +98,6 @@ const DrawerContent: React.FC = (props) => {
 const styles = StyleSheet.create({
   BottomDrawerSection: {
     marginBottom: 15,
-    borderTopColor: 'red',
-    borderTopWidth: 1
   }
 })
 

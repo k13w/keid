@@ -1,36 +1,29 @@
 import React from 'react';
-import { View, Text, Button, SafeAreaView, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
+import { useTheme } from '../../contexts/theme';
 
 const Home: React.FC = ({ navigation }) => {
-    function navigateToUsers() {
-        navigation.openDrawer()
-    }
-    return (
-        <>
+
+  const { darkTheme } = useTheme();
+  return (
     <View style={styles.container}>
-        <SafeAreaView>
-            <TouchableOpacity style={{ alignItems: 'flex-end', margin: 8 }}>
-            <Icon.Button name="bars" size={25} backgroundColor="#FFF" color="black" onPress={() => {navigation.openDrawer()}}></Icon.Button>
-            </TouchableOpacity>
-        </SafeAreaView>
-        <Text>a</Text>
-        <Text>a</Text>
-        <Text>a</Text>
-        <Text>a</Text>
-        <Text>a</Text>
-        <Text>a</Text>
+    <SafeAreaView>
+        <TouchableOpacity style={{ alignItems: 'flex-end', margin: 8 }}>
+        {darkTheme ? <Icon.Button name="bars" size={25} backgroundColor="#1c2434" color="rgb(242, 242, 242)" onPress={() => {navigation.openDrawer()}}></Icon.Button> :
+        <Icon.Button name="bars" size={25} backgroundColor="rgb(242, 242, 242)" color="black" onPress={() => {navigation.openDrawer()}}></Icon.Button>
+        }
+        </TouchableOpacity>
+    </SafeAreaView>
     </View>
-    </>
-    )
+      )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#FFF"
-    }
-})
-
 export default Home;
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1,
+  }
+})

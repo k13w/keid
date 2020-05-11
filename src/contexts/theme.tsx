@@ -1,32 +1,20 @@
 import React, { createContext, useState, useContext } from 'react';
 
-import {  DefaultTheme, DarkTheme } from '@react-navigation/native';
+import {  CustomDefaultTheme, DarkDefaultTheme } from '../utils/themes';
+
+import { Theme } from 'react-native-paper';
 
 interface ThemeContextData {
   toogleTheme(): void;
-  theme: object;
+  theme: object | any;
+  darkTheme: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextData>({} as ThemeContextData);
 
 export const ThemeProvider: React.FC = ({ children }) => {
 
-const CustomDefaultTheme = {
-    ...DefaultTheme,
-    colors: {
-      ...DefaultTheme.colors,
-    }
-}
-  
-const DarkDefaultTheme = {
-  ...DarkTheme,
-  colors: {
-    ...DarkTheme.colors,
-    primary: 'rgb(255, 45, 85)',
-  },
-};
-
-  const [darkTheme, setDarkTheme] = useState(true);
+  const [darkTheme, setDarkTheme] = useState(false);
 
   const theme = darkTheme ? DarkDefaultTheme : CustomDefaultTheme;
 
@@ -35,7 +23,7 @@ const DarkDefaultTheme = {
   }
 
   return (
-    <ThemeContext.Provider value={{ toogleTheme, theme }}>
+    <ThemeContext.Provider value={{ toogleTheme, theme, darkTheme }}>
       {children}
     </ThemeContext.Provider> 
   );
