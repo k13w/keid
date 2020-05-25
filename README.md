@@ -23,27 +23,30 @@ _Found it useful? Want more updates?_
 <img src="https://i.imgur.com/HmZaMmH.gif" alt="demo_1"  height="300" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://i.imgur.com/SxuPFqg.gif" alt="demo_2" height="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-<hr/><br/>
-
+<hr/>
 </div>
 
-# :bird: Features
+
+
+### :zap: Features
 
 * Make unlimited uploads
 * Share your buckets and files with your friends
 
-## :postal_horn: Storages
+### :postal_horn: Storages
 
-we provide two providers cloud.Each cloud provider use different names for the same concept.
+* We provide two providers cloud.Each cloud provider use different names for the same concept.
+
 | CloudStore | AWS | Backblaze |
 | --- | --- | --- |
 | **Object** | Object | File |
 | **Container** | Bucket | Bucket |
 
-In order to explore the others, feel free to click in the links above:
-- [Keid API](https://github.com/HeavenH/keid-api)
 
-# :inbox_tray: Installation
+<hr />
+
+
+### :inbox_tray: Installation
 
 **You need to install [Node.js](https://nodejs.org/en/download/), [Yarn](https://yarnpkg.com/), [Android SDK](https://medium.com/surabayadev/setting-up-react-native-android-without-android-studio-35a496e1dfa3) first and then, in order to clone the project via HTTPS, run this command:**
 
@@ -59,7 +62,9 @@ Create your enviroment variables based on the examples of ```.env.example```
 
 After copying the examples, make sure to fill the variables with new values.
 
-# :statue_of_liberty: Getting Started
+<hr/>
+
+### :statue_of_liberty: Getting Started
 
 Run the following command in order to start the application in a development environment:
 
@@ -73,12 +78,12 @@ It's important to mention that this application is **only available for android.
   yarn start
 ```
 
-# :bug: Issues
+### :bug: Issues
 
 Feel free to **file a new issue** with a respective title and description on the the [Keid Mobile](https://github.com/HeavenH/keid/issues) repository. If you already found a solution to your problem, **i would love to review your pull request**! Have a look at our [contribution guidelines](https://github.com/HeavenH/keid/blob/master/CONTRIBUTING.md) to find out about the coding standards.
 
 
-# :closed_lock_with_key: License
+### :closed_lock_with_key: License
 
 
 [MIT](LICENSE) &copy; [Gilmar Silva](twitter.com/lonelypla7boy)
