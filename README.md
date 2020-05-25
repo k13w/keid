@@ -23,7 +23,7 @@ _Found it useful? Want more updates?_
 <img src="https://i.imgur.com/HmZaMmH.gif" alt="demo_1"  height="300" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://i.imgur.com/SxuPFqg.gif" alt="demo_2" height="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-<br/>
+<hr/><br/>
 
 </div>
 
