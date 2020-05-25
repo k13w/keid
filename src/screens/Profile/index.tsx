@@ -8,10 +8,10 @@ const Profile: React.FC = (props) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={{ alignSelf: 'center'}}>
+        <View style={{ alignSelf: 'center' }}>
           <ProfileImage>
             <Avatar.Image
-              source={{ uri: 'https://i.imgur.com/kFeNIab.jpg' }}
+              source={{ uri: 'https://keid.s3.amazonaws.com/fa29c008c478e6313646565533ae9e0f.jpg' }}
               size={200}
             />
           </ProfileImage>

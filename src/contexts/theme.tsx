@@ -1,8 +1,7 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
 
-import {  CustomDefaultTheme, DarkDefaultTheme } from '../utils/themes';
-
-import { Theme } from 'react-native-paper';
+import { CustomDefaultTheme, DarkDefaultTheme } from '../utils/themes';
 
 interface ThemeContextData {
   toogleTheme(): void;
@@ -16,16 +15,32 @@ export const ThemeProvider: React.FC = ({ children }) => {
 
   const [darkTheme, setDarkTheme] = useState(false);
 
+  useEffect(() => {
+    async function loadStorageData() {
+
+      const storagedTheme = await AsyncStorage.getItem('@KeidTheme:dark');
+
+      if (storagedTheme) {
+        setDarkTheme(JSON.parse(storagedTheme));
+      } else if (!storagedTheme) {
+        setDarkTheme(false);
+      }
+    }
+    loadStorageData();
+  }, [])
+
   const theme = darkTheme ? DarkDefaultTheme : CustomDefaultTheme;
 
   const toogleTheme = () => {
-    setDarkTheme(darkTheme => !darkTheme)
+    console.log(darkTheme)
+    setDarkTheme(!darkTheme)
+    AsyncStorage.setItem('@KeidTheme:dark', JSON.stringify(!darkTheme));
   }
 
   return (
     <ThemeContext.Provider value={{ toogleTheme, theme, darkTheme }}>
       {children}
-    </ThemeContext.Provider> 
+    </ThemeContext.Provider>
   );
 };
 

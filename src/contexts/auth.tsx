@@ -6,12 +6,13 @@ import api from '../services/api';
 interface AuthContextData {
   signed: boolean;
   loading: boolean;
-  user: User| null;
+  user: User | null;
   singIn(data: User): Promise<void>;
   singOut(): void;
 }
 
 interface User {
+  id: number;
   username: string;
   email: string;
   password: string;
@@ -36,11 +37,14 @@ export const AuthProvider: React.FC = ({ children }) => {
   useEffect(() => {
     async function loadStorageData() {
 
+      console.log('useEffect', user)
+
+
       const storagedUser = await AsyncStorage.getItem('@KeidAuth:user');
       const storagedToken = await AsyncStorage.getItem('@KeidAuth:token');
 
       if (storagedUser && storagedToken) {
-        api.defaults.headers.Authorization = `Bearer ${storagedToken}`;
+        api.defaults.headers.Authorization = `${storagedToken}`;
         setUser(JSON.parse(storagedUser));
         setLoading(false);
       } else if (!storagedUser && !storagedToken) {
@@ -59,8 +63,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     setUser(user);
 
-
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+    api.defaults.headers.Authorization = `${token}`;
 
     await AsyncStorage.setItem('@KeidAuth:user', JSON.stringify(user));
     await AsyncStorage.setItem('@KeidAuth:token', token);
@@ -75,7 +78,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   return (
     <AuthContext.Provider value={{ signed: !!user, loading, user, singIn, singOut }}>
       {children}
-    </AuthContext.Provider> 
+    </AuthContext.Provider>
   );
 };
 

@@ -3,24 +3,26 @@ import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import { Avatar, Drawer, Title, Caption, TouchableRipple, Switch, Text, useTheme, DarkTheme } from 'react-native-paper';
+import { Avatar, Drawer, Title, Caption, TouchableRipple, Switch, Text, useTheme } from 'react-native-paper';
 
 import { Container, DrawerContentSection, UserInfoSection } from './styles';
 
-import { useTheme as useThemeContext} from '../../contexts/theme';
+import { useAuth } from '../../contexts/auth';
+
+import { useTheme as useThemeContext } from '../../contexts/theme';
 
 const DrawerContent: React.FC = (props) => {
   const paperTheme = useTheme();
 
+  const { singOut, user } = useAuth();
   const { toogleTheme } = useThemeContext();
-  
-  
+
   return (
     <Container>
       <DrawerContentScrollView {...props}>
         <DrawerContentSection>
-          <UserInfoSection style={{ flexDirection: 'row', marginTop: 10 }}>
-            <View>
+          <UserInfoSection style={{ flexDirection: 'row', marginTop: 10, marginLeft: 12 }}>
+            <View style={{ marginTop: 5}}>
               <Avatar.Image
                 source={{
                   uri: 'https://avatars0.githubusercontent.com/u/13907472'
@@ -29,7 +31,7 @@ const DrawerContent: React.FC = (props) => {
               />
             </View>
             <View style={{ marginLeft: 15 }}>
-              <Title>Gilmar Silva</Title>
+              <Title>{user?.username}</Title>
               <Caption>@gilmazin</Caption>
             </View>
           </UserInfoSection>
@@ -39,21 +41,21 @@ const DrawerContent: React.FC = (props) => {
                 <Icon name="home-outline" color={color} size={size} />
               )}
               label="Home"
-              onPress={() => { props.navigation.navigate('home')}}
+              onPress={() => { props.navigation.navigate('home') }}
             />
             <DrawerItem
               icon={({ color, size }) => (
                 <Icon name="bookmark-outline" color={color} size={size} />
               )}
-              label="Bookmarks"
-              onPress={() => { }}
+              label="Repositories"
+              onPress={() => { props.navigation.navigate('repositories') }}
             />
             <DrawerItem
               icon={({ color, size }) => (
                 <Icon name="account-outline" color={color} size={size} />
               )}
               label="Profile"
-              onPress={() => { props.navigation.navigate('profile')}}
+              onPress={() => { props.navigation.navigate('profile') }}
             />
             <DrawerItem
               icon={({ color, size }) => (
@@ -71,11 +73,11 @@ const DrawerContent: React.FC = (props) => {
             />
           </Drawer.Section>
           <Drawer.Section title="Preferences">
-            <TouchableRipple onPress={() => {toogleTheme()}}>
-              <View>
+            <TouchableRipple onPress={() => { toogleTheme() }}>
+              <View  style={{ flexDirection: 'row', justifyContent: 'space-between', margin: 17 }}>
                 <Text>Dark Theme</Text>
                 <View pointerEvents="none">
-                  <Switch value={paperTheme.dark}/>
+                  <Switch value={paperTheme.dark} />
                 </View>
               </View>
             </TouchableRipple>
@@ -88,7 +90,7 @@ const DrawerContent: React.FC = (props) => {
             <Icon name="exit-to-app" color={color} size={size} />
           )}
           label="Sign Out"
-          onPress={() => { }}
+          onPress={singOut}
         />
       </Drawer.Section>
     </Container>
