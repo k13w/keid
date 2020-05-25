@@ -14,7 +14,7 @@ _Found it useful? Want more updates?_
 
 [**Show your support by giving a :star:**](https://github.com/HeavenH/keid/stargazers)
 
-<br/><hr/>
+<hr/>
 
 ### **Current's Version?**
 
@@ -23,15 +23,14 @@ _Found it useful? Want more updates?_
 <img src="https://i.imgur.com/HmZaMmH.gif" alt="demo_1"  height="300" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://i.imgur.com/SxuPFqg.gif" alt="demo_2" height="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-<hr/><br/>
+<br/>
 
----
+</div>
 
 # :bird: Features
 
 * Make unlimited uploads
 * Share your buckets and files with your friends
-
 
 ## :postal_horn: Storages
 
@@ -43,8 +42,6 @@ we provide two providers cloud.Each cloud provider use different names for the s
 
 In order to explore the others, feel free to click in the links above:
 - [Keid API](https://github.com/HeavenH/keid-api)
-
-</div>
 
 # :inbox_tray: Installation
 
