@@ -29,16 +29,14 @@ export const FileProvider: React.FC = ({ children }) => {
   const [images, setImage] = useState({});
 
   useEffect(() => {
-      
     async function loadStorageData() {
       try {
         const storagedFiles = await api.get(`/users/${user?.id}/files`)
         setFiles(storagedFiles.data)
-      } catch(error) {
+      } catch (error) {
         console.log(error.message)
       }
     }
-    
     loadStorageData();
   }, [user])
 
@@ -54,7 +52,6 @@ export const FileProvider: React.FC = ({ children }) => {
           type: upload.type,
           name: upload.fileName
         }
-
         setImage(image);
       }
     })
@@ -62,9 +59,8 @@ export const FileProvider: React.FC = ({ children }) => {
 
   const handleImageSubmit = async () => {
     const data = new FormData();
-
+    
     data.append('originalName', images);
-
     await api.post('users/1/files')
   }
 

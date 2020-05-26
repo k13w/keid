@@ -86,4 +86,4 @@ Feel free to **file a new issue** with a respective title and description on the
 ### :closed_lock_with_key: License
 
 
-[MIT](LICENSE) &copy; [Gilmar Silva](twitter.com/lonelypla7boy)
+[MIT](LICENSE) &copy; [Gilmar Silva](https://twitter.com/lonelypla7boy)

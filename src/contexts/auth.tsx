@@ -37,9 +37,6 @@ export const AuthProvider: React.FC = ({ children }) => {
   useEffect(() => {
     async function loadStorageData() {
 
-      console.log('useEffect', user)
-
-
       const storagedUser = await AsyncStorage.getItem('@KeidAuth:user');
       const storagedToken = await AsyncStorage.getItem('@KeidAuth:token');
 

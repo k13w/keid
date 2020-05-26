@@ -17,9 +17,7 @@ export const ThemeProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     async function loadStorageData() {
-
       const storagedTheme = await AsyncStorage.getItem('@KeidTheme:dark');
-
       if (storagedTheme) {
         setDarkTheme(JSON.parse(storagedTheme));
       } else if (!storagedTheme) {
@@ -32,7 +30,6 @@ export const ThemeProvider: React.FC = ({ children }) => {
   const theme = darkTheme ? DarkDefaultTheme : CustomDefaultTheme;
 
   const toogleTheme = () => {
-    console.log(darkTheme)
     setDarkTheme(!darkTheme)
     AsyncStorage.setItem('@KeidTheme:dark', JSON.stringify(!darkTheme));
   }

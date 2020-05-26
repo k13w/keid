@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { View, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native';
+import { View, TouchableOpacity, SafeAreaView, StatusBar, TextInput } from 'react-native';
 import { SubmitHandler, FormHandles } from '@unform/core';
 import { Form } from '@unform/mobile';
 
@@ -16,10 +16,10 @@ import {
 } from './styles';
 
 interface FormData {
+  id: number;
   username: string;
   email: string;
   password: string;
-  current: object;
 };
 
 const SingIn: React.FC = () => {
@@ -38,12 +38,26 @@ const SingIn: React.FC = () => {
 
         </SafeAreaView>
       </HeaderBackground>
+      
       <PanelLogin>
         <Form ref={formRef} onSubmit={handleSingIn}>
-          <Input label='E-mail' name="email" type="email" placeholder="E-mail" />
-          <Input label='Password' name="password" type="password" placeholder="Password" />
+          <Input 
+            autoCorrect={false}
+            keyboardType="email-address"
+            name="email"
+            placeholder="E-mail"
+            autoCapitalize="none"
+            returnKeyType="next"
+          />
+          <Input 
+            secureTextEntry
+            returnKeyType="send"
+            name="password" 
+            placeholder="Password"
+            autoCapitalize="none"
+          />
           <TouchableOpacity />
-          <SubmitButton title="Sign in" onPress={() => formRef.current.submitForm()}>
+          <SubmitButton title="Sign in" onPress={() => formRef.current?.submitForm()}>
             <SubmitButtonText>SING IN</SubmitButtonText>
           </SubmitButton>
         </Form>

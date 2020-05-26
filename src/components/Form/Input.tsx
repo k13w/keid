@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
 import { TextInput, StyleSheet } from 'react-native';
+import { TextInputProps } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,35 +16,36 @@ const styles = StyleSheet.create({
   }
 })
 
-interface Props {
-    name: string;
-};
+interface Props extends TextInputProps {
+  name: string;
+}
 
-export const Input: React.FC<Props> = ({ name, ...rest } ) => {
-    const inputRef = useRef<HTMLDivElement>(null)
-    const { fieldName, registerField } = useField(name);
+interface InputValueReference {
+  value: string;
+}
 
+export const Input: React.FC<Props> = ({ name, ...rest }) => {
+  const inputRef = useRef<any>(null)
+  const { fieldName, registerField, defaultValue } = useField(name);
+  const inputValueRef = useRef<InputValueReference>({ value: defaultValue });
 
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      ref: inputValueRef.current,
+      path: 'value',
+    });
+  }, [fieldName, registerField]);
 
-    useEffect(() => {
-        registerField({
-            name: fieldName,
-            ref: inputRef.current,
-            path: 'value',
-        });
-    }, [fieldName, registerField]);
-
-    return (
-        <TextInput style={styles.container}
-        ref={inputRef}
-        keyboardAppearance="dark"
-        placeholderTextColor="#8258FA"
-        onChangeText={value => {
-          if (inputRef.current) {
-            inputRef.current.value = value;
-          }
-        }}
-        {...rest}
-      />
-    )
+  return (
+    <TextInput style={styles.container}
+      ref={inputRef}
+      keyboardAppearance="dark"
+      placeholderTextColor="#8258FA"
+      onChangeText={value => {
+        inputValueRef.current.value = value;
+      }}
+      {...rest}
+    />
+  )
 }

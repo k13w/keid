@@ -29,16 +29,16 @@ export const BoxProvider: React.FC = ({ children }) => {
   const [boxesState, setBoxesState] = useState([]);
 
   useEffect(() => {
-      
+
     async function loadStorageData() {
       try {
         const storagedBoxes = await api.get(`/users/${user?.id}/boxes`)
         setBoxesState(storagedBoxes.data)
-      } catch(error) {
+      } catch (error) {
         console.log(error.message)
       }
     }
-    
+
     loadStorageData();
   }, [user])
 
@@ -46,13 +46,9 @@ export const BoxProvider: React.FC = ({ children }) => {
   const handleNewBox = async (data) => {
     const { name } = data;
 
-    console.log(name)
-    console.log(user?.id)
-
-    const res = await api.post(`/users/1/boxes`, { name: name } );
+    const res = await api.post(`/users/1/boxes`, { name: name });
 
     setBoxes(res.data)
-
   };
 
   return (
