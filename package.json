@@ -23,7 +23,7 @@
     "axios": "^0.19.2",
     "date-fns": "^2.14.0",
     "react": "16.11.0",
-    "react-native": "0.62.2",
+    "react-native": "0.62.3",
     "react-native-file-viewer": "^2.1.0",
     "react-native-fs": "^2.16.6",
     "react-native-gesture-handler": "^1.6.1",
